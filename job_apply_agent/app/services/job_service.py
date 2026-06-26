@@ -7,7 +7,13 @@ def save_job(
     company,
     location,
     job_url,
-    description
+    description,
+    experience,
+    employment_type,
+    skills,
+    match_score,
+    posted_date,
+    application_status
 ):
     db = SessionLocal()
 
@@ -26,8 +32,12 @@ def save_job(
         location=location,
         job_url=job_url,
         description=description,
+        experience=experience,
+        employment_type=employment_type,
+        skills=skills,
         match_score=0,
-        status="NEW"
+        posted_date=posted_date,
+        application_status="NEW"
     )
 
     db.add(job)

@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, Float, Text, Date
+from sqlalchemy import Column, Integer, String, Float, Text, Date, DateTime
 from sqlalchemy.orm import declarative_base
+from datetime import datetime
 
 Base = declarative_base()
 
@@ -12,9 +13,18 @@ class Job(Base):
     location = Column(String)
     job_url = Column(String, unique=True)
     description = Column(Text)
-    experience = Column(Integer)
+    experience = Column(String)
     employment_type = Column(String, nullable=True)
     skills = Column(String)
     match_score = Column(Float)
     posted_date = Column(String)
     application_status = Column(String, default="Not Applied")
+    inserted_at = Column(
+        DateTime,
+        default=datetime.now
+    )
+
+    applied_at = Column(
+        DateTime,
+        nullable=True
+    )
