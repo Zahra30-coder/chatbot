@@ -1,4 +1,4 @@
-from app.services.scrapers.remoteok_scraper import fetch_remoteok_jobs
+from app.services.scrapers.linkedin_scraper import scrape_jobs
 from app.services.job_service import save_job
 
 #del jobs.db
@@ -6,7 +6,7 @@ from app.services.job_service import save_job
 #python -m app.agents.run_collector
 
 def collect_jobs():
-    jobs = fetch_remoteok_jobs()
+    jobs = scrape_jobs()
 
     count = 0
 
@@ -22,6 +22,8 @@ def collect_jobs():
             skills=job.get("skills"),
             match_score=job.get("match_score"),
             posted_date=job.get("posted_date"),
+            inserted_at=job.get("inserted_at"),
+            applied_at=job.get("applied_at"),
             application_status=job.get(
                 "application_status",
                 "Not Applied"

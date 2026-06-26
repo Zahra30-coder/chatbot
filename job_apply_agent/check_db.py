@@ -33,7 +33,9 @@ SELECT
     skills,
     match_score,
     posted_date,
-    application_status
+    application_status,
+    inserted_at,
+    applied_at
 FROM jobs
 """)
 

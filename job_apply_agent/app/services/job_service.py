@@ -1,6 +1,6 @@
 from app.database.db import SessionLocal
 from app.database.models import Job
-
+from datetime import datetime
 
 def save_job(
     title,
@@ -13,6 +13,8 @@ def save_job(
     skills,
     match_score,
     posted_date,
+    inserted_at,
+    applied_at,
     application_status
 ):
     db = SessionLocal()
@@ -37,6 +39,8 @@ def save_job(
         skills=skills,
         match_score=0,
         posted_date=posted_date,
+        inserted_at = datetime.now(),
+        applied_at = None,
         application_status="NEW"
     )
 
