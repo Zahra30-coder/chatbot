@@ -9,8 +9,12 @@ job = Job(
     location="Remote",
     job_url="https://example.com/job1",
     description="Test Job",
+    experience_level=3,
+    employment_type="Contractual",
+    skills="RAG",
     match_score=0,
-    status="NEW"
+    posted_date="25/06/2026",
+    application_status="demo insert"
 )
 
 db.add(job)

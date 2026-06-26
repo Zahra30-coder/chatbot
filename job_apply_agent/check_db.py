@@ -1,4 +1,6 @@
 import sqlite3
+#python -c "from sqlalchemy import inspect; from app.database.db import engine; print(inspect(engine).get_table_names())"
+#['jobs']
 
 #Open DB Browser for SQLite
 #Click Open Database
@@ -16,13 +18,16 @@ cursor.execute(
 )
 
 cursor.execute("""
-SELECT title, company
+SELECT title, company, location, job_url, description, experience, employment_type, skills, match_score, posted_date, application_status
 FROM jobs
 """)
 
 for row in cursor.fetchall():
     print(row)
 
-print(cursor.fetchall())
+tables = print(cursor.fetchall())
+
+print("Tables:")
+print(tables)
 
 conn.close()
